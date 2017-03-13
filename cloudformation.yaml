@@ -7,7 +7,7 @@
   tasks:
   - name: launch the opennms minion lab stack
     cloudformation:
-      stack_name: "opennms-minion-lab"
+      stack_name: "opennms-minion-lab-{{ LabId }}"
       state: "present"
       region: "us-east-1"
       disable_rollback: true
@@ -19,8 +19,8 @@
         KafkaCount: "{{ KafkaCount }}"
         ElasticCount: "{{ ElasticCount }}"
       tags:
-        Owner: "jesse"
         Env: "DEV"
+        LabId: "{{ LabId }}"
     register: stack
     tags:
      - provision
@@ -31,13 +31,16 @@
      - provision
   - name: destroy stack
     cloudformation:
-      stack_name: "opennms-minion-lab"
+      stack_name: "opennms-minion-lab-{{ LabId }}"
       state: "absent"
       region: "us-east-1"
     tags:
      - destroy
 
-- hosts: tag_aws_cloudformation_stack_name_opennms_minion_lab
+- hosts:
+    - "tag_aws_cloudformation_stack_name_opennms_minion_lab_{{ LabId }}"
+  vars_files:
+    - "vars/cf_vars.yaml"
   roles:
     - common
 

@@ -1,4 +1,5 @@
 KeyName: "jesse@noise"
+LabId: "jesse"
 EC2InstanceType: "c4.large"
 MinionCount: 2
 KafkaCount: 1
