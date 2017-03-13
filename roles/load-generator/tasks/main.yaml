@@ -5,7 +5,7 @@
    - debug
 - name: download udpgen
   get_url:
-    url: https://github.com/j-white/opennms-events-stress-tools/releases/download/2016.12.12/udpgen.centos7
+    url: https://github.com/j-white/opennms-events-stress-tools/releases/download/2017.01.10/udpgen.centos7
     dest: /usr/bin/udpgen
     mode: 0755
   become: yes

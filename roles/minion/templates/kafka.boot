@@ -1,2 +1,2 @@
-#!opennms-core-ipc-sink-camel
-#opennms-core-ipc-sink-kafka
+{% if not UseKafka %}#{% endif %}!opennms-core-ipc-sink-camel
+{% if not UseKafka %}#{% endif %}opennms-core-ipc-sink-kafka

@@ -26,6 +26,7 @@
   get_url:
     url: https://heanet.dl.sourceforge.net/project/nmon/nmon16e_mpginc.tar.gz
     timeout: 30
+    validate_certs: no
     dest: /opt/nmon16e_mpginc.tar.gz
     mode: 0755
   become: yes

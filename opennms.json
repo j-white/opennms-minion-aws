@@ -465,6 +465,11 @@
             "ToPort" : "8980",
             "CidrIp" : { "Ref" : "SSHLocation" }
           }, {
+            "IpProtocol" : "tcp",
+            "FromPort" : "8181",
+            "ToPort" : "8181",
+            "CidrIp" : { "Ref" : "SSHLocation" }
+          }, {
             "IpProtocol" : "udp",
             "FromPort" : "1162",
             "ToPort" : "1162",

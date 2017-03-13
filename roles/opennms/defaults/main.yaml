@@ -1,2 +1,3 @@
 ---
-OpenNMSRepoFile: opennms-repo-branches-release-19.0.0-rhel6.noarch.rpm
+OpenNMSRepoFile: opennms-repo-branches-foundation-2017-rhel6.noarch.rpm
+UseKafka: false
