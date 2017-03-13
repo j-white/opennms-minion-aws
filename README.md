@@ -54,7 +54,8 @@ Number of Kafka and Elasticsearch nodes can be confiured in the `vars/cf_vars.ya
 
 Increase the number of partitions using:
 
-    ./bin/kafka-topics.sh --zookeeper=10.0.0.226:2181 --alter --topic OpenNMS.Sink.Syslog --partitions 2
+     export ZK="$(cat config/server.properties | grep zookeeper.connect= | awk -F '=' '{print $2}')"
+    ./bin/kafka-topics.sh --zookeeper=$ZK --alter --topic OpenNMS.Sink.Syslog --partitions 2
 
 ## References
 
