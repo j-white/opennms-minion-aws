@@ -135,6 +135,27 @@
   tags:
    - setup
    - opennms
+- name: configure opennms (org.apache.karaf.features.cfg)
+  template: src=org.apache.karaf.features.cfg dest=/opt/opennms/etc/org.apache.karaf.features.cfg owner=root group=root mode=0644
+  become: yes
+  become_user: root
+  tags:
+   - setup
+   - opennms
+- name: configure opennms (org.ops4j.pax.logging.cfg)
+  template: src=org.ops4j.pax.logging.cfg dest=/opt/opennms/etc/org.ops4j.pax.logging.cfg owner=root group=root mode=0644
+  become: yes
+  become_user: root
+  tags:
+   - setup
+   - opennms
+- name: configure opennms (org.opennms.plugin.elasticsearch.rest.forwarder.cfg)
+  template: src=org.opennms.plugin.elasticsearch.rest.forwarder.cfg dest=/opt/opennms/etc/org.opennms.plugin.elasticsearch.rest.forwarder.cfg owner=root group=root mode=0644
+  become: yes
+  become_user: root
+  tags:
+   - setup
+   - opennms
 - stat: path=/opt/opennms/etc/opennms-upgrade-status.properties
   become: yes
   become_user: root

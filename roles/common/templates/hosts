@@ -1,0 +1,4 @@
+127.0.0.1   localhost localhost.localdomain
+{{ hostvars[groups['tag_MinionLabInstanceType_elastic'][0]]['ec2_private_ip_address'] }} elasticsearch
+{{ hostvars[groups['tag_MinionLabInstanceType_kafka'][0]]['ec2_private_ip_address'] }} kafka
+{{ hostvars[groups['tag_MinionLabInstanceType_zookeeper'][0]]['ec2_private_ip_address'] }} zookeeper
