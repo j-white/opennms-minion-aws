@@ -58,9 +58,11 @@ Number of Kafka and Elasticsearch nodes can be confiured in the `vars/cf_vars.ya
 
 ### Kafka
 
+You can enable Kafka by appending `--extra-vars "UseKafka=true"` during the setup call.
+
 Increase the number of partitions using:
 
-    ./bin/kafka-topics.sh --zookeeper=zookeeper::2181 --alter --topic OpenNMS.Sink.Syslog --partitions 2
+    /opt/kafka/bin/kafka-topics.sh --zookeeper=zookeeper:2181 --alter --topic OpenNMS.Sink.Syslog --partitions 2
 
 ### Elasticsearch
 
