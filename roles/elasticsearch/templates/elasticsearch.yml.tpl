@@ -55,7 +55,7 @@ bootstrap.mlockall: true
 #
 # Set the bind address to a specific IP (IPv4 or IPv6):
 #
-network.host: {{ hostvars[groups['tag_MinionLabInstanceType_elastic'][0]]['ec2_private_ip_address'] }}
+network.host: {{ hostvars[inventory_hostname]['ec2_private_ip_address'] }}
 
 #
 # Set a custom port for HTTP:
@@ -70,12 +70,12 @@ network.host: {{ hostvars[groups['tag_MinionLabInstanceType_elastic'][0]]['ec2_p
 # Pass an initial list of hosts to perform discovery when new node is started:
 # The default list of hosts is ["127.0.0.1", "[::1]"]
 #
-discovery.zen.ping.unicast.hosts: {{ hostvars[groups['tag_MinionLabInstanceType_elastic'][0]]['ec2_private_ip_address'] }}
+discovery.zen.ping.unicast.hosts: [{% for host in groups['tag_MinionLabInstanceType_elastic'] %}{% if not loop.first %},{% endif %}"{{ hostvars[host]['ec2_private_ip_address'] }}"{% endfor %}]
 
 #
 # Prevent the "split brain" by configuring the majority of nodes (total number of nodes / 2 + 1):
 #
-# discovery.zen.minimum_master_nodes: 3
+discovery.zen.minimum_master_nodes: {{ (groups['tag_MinionLabInstanceType_elastic']|length // 2) + 1 }}
 #
 # For more information, see the documentation at:
 # <http://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery.html>
@@ -84,7 +84,7 @@ discovery.zen.ping.unicast.hosts: {{ hostvars[groups['tag_MinionLabInstanceType_
 #
 # Block initial recovery after a full cluster restart until N nodes are started:
 #
-# gateway.recover_after_nodes: 3
+gateway.recover_after_nodes: {{ (groups['tag_MinionLabInstanceType_elastic']|length // 2) + 1 }}
 #
 # For more information, see the documentation at:
 # <http://www.elastic.co/guide/en/elasticsearch/reference/current/modules-gateway.html>

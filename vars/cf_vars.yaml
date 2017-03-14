@@ -3,4 +3,4 @@ LabId: "jesse"
 EC2InstanceType: "c4.large"
 MinionCount: 2
 KafkaCount: 1
-ElasticCount: 1
+ElasticCount: 3

@@ -70,6 +70,10 @@ List the indices and number of documents using:
 
     curl 'http://elasticsearch:9200/_cat/indices?v'
 
+Cluster health:
+
+    curl 'http://elasticsearch:9200/_cluster/health?pretty'
+
 ## References
 
 * [AWS EC2 External Inventory Script](http://docs.ansible.com/ansible/intro_dynamic_inventory.html#example-aws-ec2-external-inventory-script)
