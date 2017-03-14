@@ -354,10 +354,10 @@
             "DeleteOnTermination"      : "true",
             "SubnetId"                 : { "Ref" : "PublicSubnet" }
           }],
-          "Tags" : [{
-            "Key": "MinionLabInstanceType",
-            "Value": "loadgen"
-          }]
+          "Tags" : [
+            { "Key" : "Name", "Value" : "Load Generator (Minion Lab)" },
+            { "Key": "MinionLabInstanceType", "Value": "loadgen" }
+          ]
         }
       },
 
@@ -376,10 +376,10 @@
             "DeleteOnTermination"      : "true",
             "SubnetId"                 : { "Ref" : "PublicSubnet" }
           }],
-          "Tags" : [{
-            "Key": "MinionLabInstanceType",
-            "Value": "loadbalancer"
-          }]
+          "Tags" : [
+            { "Key" : "Name", "Value" : "Load Balancer (Minion Lab)" },
+            { "Key": "MinionLabInstanceType", "Value": "loadbalancer" }
+          ]
         }
       },
 
@@ -398,10 +398,10 @@
             "DeleteOnTermination"      : "true",
             "SubnetId"                 : { "Ref" : "PublicSubnet" }
           }],
-          "Tags" : [{
-            "Key": "MinionLabInstanceType",
-            "Value": "postgres"
-          }]
+          "Tags" : [
+            { "Key" : "Name", "Value" : "PostgreSQL (Minion Lab)" },
+            { "Key": "MinionLabInstanceType", "Value": "postgres" }
+          ]
         }
       },
 
@@ -420,10 +420,10 @@
             "DeleteOnTermination"      : "true",
             "SubnetId"                 : { "Ref" : "PublicSubnet" }
           }],
-          "Tags" : [{
-            "Key": "MinionLabInstanceType",
-            "Value": "opennms"
-          }]
+          "Tags" : [
+            { "Key" : "Name", "Value" : "OpenNMS (Minion Lab)" },
+            { "Key": "MinionLabInstanceType", "Value": "opennms" }
+          ]
         }
       },
 
@@ -442,10 +442,10 @@
             "DeleteOnTermination"      : "true",
             "SubnetId"                 : { "Ref" : "PublicSubnet" }
           }],
-          "Tags" : [{
-            "Key": "MinionLabInstanceType",
-            "Value": "zookeeper"
-          }]
+          "Tags" : [
+            { "Key" : "Name", "Value" : "Zookeeper (Minion Lab)" },
+            { "Key": "MinionLabInstanceType", "Value": "zookeeper" }
+          ]
         }
       },
 
@@ -529,6 +529,7 @@
           "MaxSize" : "10",
           "DesiredCapacity" : { "Ref" : "MinionCount" },
           "Tags" : [
+            { "Key" : "Name", "Value" : "Minion (Minion Lab)", "PropagateAtLaunch" : "true" },
             { "Key" : "Network", "Value" : "Public", "PropagateAtLaunch" : "true" },
             { "Key": "MinionLabInstanceType", "Value": "minion", "PropagateAtLaunch" : "true" }
           ]
@@ -626,6 +627,7 @@
           "MaxSize" : "10",
           "DesiredCapacity" : { "Ref" : "KafkaCount" },
           "Tags" : [
+            { "Key" : "Name", "Value" : "Kafka (Minion Lab)", "PropagateAtLaunch" : "true" },
             { "Key" : "Network", "Value" : "Public", "PropagateAtLaunch" : "true" },
             { "Key": "MinionLabInstanceType", "Value": "kafka", "PropagateAtLaunch" : "true" }
           ]
@@ -723,6 +725,7 @@
           "MaxSize" : "10",
           "DesiredCapacity" : { "Ref" : "ElasticCount" },
           "Tags" : [
+            { "Key" : "Name", "Value" : "Elasticserach (Minion Lab)", "PropagateAtLaunch" : "true" },
             { "Key" : "Network", "Value" : "Public", "PropagateAtLaunch" : "true" },
             { "Key": "MinionLabInstanceType", "Value": "elastic", "PropagateAtLaunch" : "true" }
           ]
